@@ -1,5 +1,6 @@
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
+import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';  // Asegúrate de importar correctamente JwtStrategy y ExtractJwt
 import User from '../models/user.model.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -39,7 +40,7 @@ passport.use(
   new JwtStrategy(
     {
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: 'your_jwt_secret',
+      secretOrKey: 'your_jwt_secret',  // Cambia 'your_jwt_secret' por tu clave secreta real, idealmente en una variable de entorno
     },
     async (payload, done) => {
       try {
@@ -54,3 +55,6 @@ passport.use(
     }
   )
 );
+
+export default passport;
+

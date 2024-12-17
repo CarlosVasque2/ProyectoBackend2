@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { loginUser, registerUser } from "../controllers/authController.js"; // Importamos los controladores
-import { checkAuth } from "../middleware/authMiddleware.js"; // Importamos el middleware de autenticación (checkAuth)
+import { checkAuth } from "../middlewares/authMiddleware.js"; // Importamos el middleware de autenticación (checkAuth)
 
 const router = Router();
 
